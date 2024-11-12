@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apas Restaurant | Maryam Knowles, 2024</title>
+    
+    <!-- Import Google Fonts for Dynalight and Roboto Flex -->
+    <link href="https://fonts.googleapis.com/css2?family=Dynalight&family=Oswald:wght@400&family=Roboto+Flex:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset and global styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #6d7f68;
+            color: #8e5d72;
+            margin: 0;
+        }
+
+        /* Main container styling */
+        .wrapper {
+            max-width: 400px;
+            margin: auto;
+            background-color: #c9b89c;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header styling */
+        .header {
+            color: #8e5d72;
+            padding: 25px;
+            text-align: center;
+        }
+
+        /* Apply Dynalight font to h1 */
+        .header h1 {
+            font-size: 2em;
+            font-family: "Dynalight", cursive;
+            font-weight: 400;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #c9b89c;
+            padding: 15px 0;
+        }
+
+        /* Apply Oswald font to navbar links */
+        .navbar a {
+            font-family: "Oswald", sans-serif;
+            font-weight: 400;
+            font-optical-sizing: auto;
+            color: #885461;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+        }
+
+        .navbar a:hover {
+            background-color: #988187;
+            border-radius: 5px;
+        }
+
+        /* Roboto Flex styling for h2, h3, and p */
+        .roboto-flex-content {
+            font-family: "Roboto Flex", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "slnt" 0,
+                "wdth" 100,
+                "GRAD" 0,
+                "XOPQ" 96,
+                "XTRA" 468,
+                "YOPQ" 79,
+                "YTAS" 750,
+                "YTDE" -203,
+                "YTFI" 738,
+                "YTLC" 514,
+                "YTUC" 712;
+        }
+
+        /* Content section styling */
+        .content {
+            flex-grow: 1;
+            padding: 25px;
+        }
+
+        .menu-section {
+            margin-bottom: 30px;
+        }
+
+        .menu-section h2,
+        .menu-item h3,
+        .menu-item p,
+        .menu-section p {
+            /* Applying Roboto Flex font */
+            font-family: "Roboto Flex", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-variation-settings:
+                "slnt" 0,
+                "wdth" 100,
+                "GRAD" 0,
+                "XOPQ" 96,
+                "XTRA" 468,
+                "YOPQ" 79,
+                "YTAS" 750,
+                "YTDE" -203,
+                "YTFI" 738,
+                "YTLC" 514,
+                "YTUC" 712;
+        }
+
+        .menu-section h2 {
+            font-size: 1.6em;
+            color: #3c3016;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #555;
+            color: #3c3016;
+        }
+
+        .menu-item h3 {
+            font-size: 1.2em;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .menu-item p {
+            font-size: 1.1em;
+            color: #615d30;
+            margin: 0;
+        }
+
+        /* Footer styling */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            background-color: #3e3629;
+            color: #9c6777;
+        }
+
+        .footer a {
+            color: #6d92b1;
+            text-decoration: none;
+        }
+
+        /* Mobile responsive styling */
+        @media (max-width: 400px) {
+            .wrapper {
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .navbar a {
+                font-size: 1em;
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="dynalight-regular">Apas Restaurant</h1>
+            <img src="Cleopatra-Luxury-Resort-Sharm-El-Sheikh-Red-Sea-Wharf-Restaurant-Overview-1-2000x1000.jpg" style="width:100%; border-radius: 8px; margin-top: 15px;">
+        </div>
+
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <section class="menu-section">
+                <h2>Signature Dishes</h2>
+                <div class="menu-item">
+                    <h3>Wagyu Ribeye Steak</h3>
+                    <p>$120.00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Black Truffle Risotto</h3>
+                    <p>$65.00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Bluefin Tuna Sashimi</h3>
+                    <p>$85.00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Lobster Thermidor</h3>
+                    <p>$95.00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Gold Leaf Caviar</h3>
+                    <p>$150.00</p>
+                </div>
+            </section>
+
+            <section class="menu-section">
+                <h2>About Us</h2>
+                <img src="Cleopatra-Luxury-Resort-Sharm-El-Sheikh-Red-Sea-Wharf-Restaurant-Terrace-1-2000x1200.jpg" alt="Outdoor dining area at Apas Restaurant" style="width:100%; border-radius: 8px; margin-top: 15px;">
+                <p>Apas Restaurant offers an exquisite dining experience with premium ingredients and world-class chefs. Indulge in a taste of luxury and sophistication.</p>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Visit us: <a href="https://Apasrestaurant-miami.com" target="_blank">apasrestaurant-miami.com</a></p>
+            <p>&copy; Maryam Knowles, 2024</p>
+        </div>
+    </div>
+</body>
+</html>
+
