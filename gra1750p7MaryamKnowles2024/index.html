@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Promotional webpage for the Ghost in the Shell (1995) movie.">
+    <title>Ghost in the Shell (1995)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: url('gits bg gif.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the container spans the full height of the viewport */
+            background: rgba(0, 0, 0, 0.8); /* Transparent black for contrast */
+        }
+
+        .header {
+			font-family: "Gate A1 VF";  
+            text-align: center;
+            padding: 20px;
+            font-size: 32px;
+            font-weight: 200;
+            color: #EA2027;
+            text-shadow: 0 0 8px #9980FA, 0 0 12px #D980FA;
+            border-bottom: 2px solid #009432#00b4d8;
+        }
+
+        .nav {
+            background: rgba(0,0,0,.5);linear-gradient(90deg, rgba(3, 4, 94, 0.8), rgba(2, 62, 138, 0.8));
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #1B1464;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #e056fd;
+            color: #000;
+            text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .banner img {
+            width: 80%;
+            height: auto;
+            margin: auto;
+            display: block;
+            box-shadow: 0 0 10px #C4E538#1B1464, 0 0#C4E538 20px #1B1464;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            color: #ff00ff;
+            text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff;
+            border-bottom: 2px solid #ff00ff;
+            display: inline-block;
+        }
+
+        .section p, .section ul {
+            margin-top: 10px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section ul li {
+            list-style: none;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section ul li::before {
+            content: ">";
+            color: #00ffe1;
+            position: absolute;
+            left: 0;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border: 2px solid #ff00ff;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+        }
+
+        .footer {
+            background: #121212;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        #009432    border-top: 2px solid #00ffe1;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Ghost in the Shell (1995)</h1>
+        </header>
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#cast-crew">Cast & Crew</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <main class="main">
+            <section id="banner" class="banner">
+                <img src="gits poster 3.jpg" alt="Ghost in the Shell Banner">
+            </section>
+            <section id="about" class="section">
+                <h2>About the Movie</h2>
+                <p>
+                    <em>Ghost in the Shell</em> (1995) is a landmark in cyberpunk cinema, directed by Mamoru Oshii.
+                    Set in a dystopian future, it explores themes of identity, artificial intelligence, and the
+                    nature of humanity.
+                </p>
+            </section>
+            <section id="cast-crew" class="section">
+                <h2>Cast & Crew</h2>
+                <ul>
+                    <li>Director: Mamoru Oshii</li>
+                    <li>Major Motoko Kusanagi (Voice): Atsuko Tanaka</li>
+                    <li>Batou (Voice): Akio Ōtsuka</li>
+                    <li>Music: Kenji Kawai</li>
+                </ul>
+            </section>
+            <section id="gallery" class="section">
+                <h2>Gallery</h2>
+                <div class="gallery">
+                    <img src="gits scene1.png" alt="Scene 1">
+                    <img src="gits scene2.avif" alt="Scene 2">
+                    <img src="gits scene3.webp" alt="Scene 3">
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>© 2024, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+        </footer>
+    </div>
+</body>
+</html>
