@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Promotional webpage for the Ghost in the Shell (1995) movie.">
+    <title>Ghost in the Shell (1995)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Adobe Kis VF Subhead';
+            background-image: url("gits bg gif.gif");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 20px 0; 
+        }
+
+        .video-container iframe {
+            display: inline-block;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0); 
+        }
+
+        .header {
+            font-family: "Adobe Kis VF Subhead";  
+            text-align: center;
+            font-size: 32px;
+            font-weight: 200;
+            color: #EA2027;
+            text-shadow: 0 0 8px #9980FA, 0 0 12px #D980FA;
+            border-bottom: 2px solid #009432#00b4d8;
+            position: relative;
+        }
+
+        .audio-player {
+            margin-top: 10px;
+            background: rgba(0, 0, 0, 0);
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .audio-player audio {
+            width: 200%;
+            background: rgba(0, 0, 0, 0);
+            border: none;
+        }
+
+        .audio-player span {
+            font-size: 14px;
+            color: #fff;
+            text-shadow: 0 0 5px #0c2461;
+        }
+
+        .nav {
+            background: rgba(0,0,0,.5);
+            linear-gradient(90deg, rgba(3, 4, 94, 0.8), rgba(2, 62, 138, 0.8));
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 20px;
+            position: relative; 
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 8px;
+            border-color: transparent transparent #1B1464 transparent;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover::before {
+            border-color: transparent transparent #e056fd transparent;
+        }
+
+        .nav a:hover {
+            background-color: #e056fd;
+            color: #000;
+            text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
+        }
+
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 40px;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            margin: auto;
+            display: block;
+            box-shadow: 0 0 10px #C4E538#1B1464, 0 0#C4E538 20px #1B1464;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            text-align: center;
+            color: #ff00ff;
+            text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff;
+            border-bottom: 2px solid #1c7839;
+            border-bottom-style: hidden;
+            display: inline-block;
+        }
+
+        .section p, .section ul {
+            margin-top: 10px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+    .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #1c7839;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center bottom;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #1c7839, 0 0 20px #1c7839;
+}
+
+
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            border-top: 2px solid #1c7839;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="banner">
+                <img src="gits poster header final.jpg" alt="Ghost in the Shell Banner">
+            </div>
+        </header>
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#cast-crew">Cast & Crew</a>
+            <a href="#gallery">Gallery</a>
+			<a href="#soundtrack">Original Soundtrack</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="video-section">
+            <div class="video-container">
+                <iframe width="1200" height="700" src="https://www.youtube.com/embed/8RF09G8Ymqg?si=uoGL5YW4PnYTnPBs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <main class="main">
+            <div class="main-layout">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <section id="gallery" class="section">
+                        <h2>Gallery</h2>
+                        <div class="gallery">
+                            <img src="gits scene1.png" alt="Scene 1">
+                            <img src="gits scene2.avif" alt="Scene 2">
+                            <img src="gits scene3.webp" alt="Scene 3">
+                            <img src="gits scene 4.jpg" alt="Scene 4">
+                        </div>
+    
+                    </section>
+                </div>
+                <!-- Right Column -->
+                <div class="right-column">
+                    <section id="about" class="section">
+                        <h2>About</h2>
+                        <p>
+                            Ghost in the Shell (1995) 2029: A female cybernetic government agent, Major Motoko Kusanagi, and the Internal Bureau of Investigations are hot on the trail of "The Puppet Master," a mysterious and threatening computer virus capable of infiltrating human hosts.
+                            Together with her fellow agents from Section 9, Kusanagi embarks on a high-tech race against time to capture the omnipresent entity. 
+                        </p>
+                    </section>
+                    <section id="cast-crew" class="section">
+                        <h2>Cast & Crew</h2>
+                        <ul>
+                            <li>Director: Mamoru Oshii</li>
+                            <li>Major Motoko Kusanagi (Voice): Atsuko Tanaka</li>
+                            <li>Batou (Voice): Akio Ōtsuka</li>
+                            <li>Music: Kenji Kawai</li>
+                        </ul>
+						<div class="audio-player">
+                            <audio controls autoplay>
+                                <source src="Osamu Kara Kidou Tai Yokoku BGM (Ghost in the Shell Trailer Music).mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <span>Now Playing: Osamu Kara Kidou Tai Yokoku BGM</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>© 2024, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
