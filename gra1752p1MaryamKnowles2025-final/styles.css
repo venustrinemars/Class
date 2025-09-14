@@ -1,0 +1,23 @@
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #202124; background: #0f1a24; }
+header { display: none; }
+banner#siteBanner { display: block; max-width: 1366px; margin: 0 auto; }
+.content { max-width: 960px; margin: 24px auto; padding: 0 16px; color: #e8f0f5; }
+.content h2 { margin: 0 0 8px 0; }
+.siteFooter { max-width: 960px; margin: 32px auto 48px; padding: 0 16px; color: #cfe3ef; }
+.siteFooter .copyright { margin: 0 0 6px; font-size: 0.95rem; }
+.siteFooter .disclaimer { margin: 0; font-size: 0.85rem; line-height: 1.45; opacity: 0.9; }
+
+/* Example CSS hooks for your exported SVG layer names */
+#bannerRoot { width: 100%; height: auto; display: block; }
+#headline { text-transform: uppercase; letter-spacing: 1px; }
+#subhead { opacity: 0.9; }
+#clusterIcons g:hover rect { opacity: 0.28; transition: opacity 200ms ease; }
+#iconPen:hover #penNib { transform: scale(1.05); transform-origin: 48px 44px; }
+#iconPalette:hover #wheel { stroke-width: 12; }
+#iconType:hover #typeA { stroke-width: 8; }
+#overlayTint { opacity: 0.28; }
+
+/* Utility */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
