@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Jupiter Steakhouse — Flat Mockup with Hotspots</title>
+  <meta name="viewport" content="width=1366" />
+
+  <style>
+    
+    html,body { margin:0; padding:0; background:#151515; }
+    body      { display:flex; justify-content:center; align-items:flex-start; min-height:100vh; }
+
+    
+    #stage {
+      position: relative;
+      width: 1366px;
+      height: 768px;
+      background: url("mockup_flat.png") top left no-repeat;
+      background-size: 1366px 768px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      overflow: hidden;
+    }
+
+    
+    .hotspot {
+      position: absolute;
+      display: block;
+      background: rgba(255,0,0,0);   
+      text-indent: -9999px;      
+      overflow: hidden;
+      border: 0;
+    }
+
+    
+    body.show-hitboxes .hotspot { background: rgba(0, 200, 255, 0.25); outline: 1px solid rgba(0,200,255,.8); }
+
+    
+    /* Top nav */
+    .hs-home    { left:110px; top:18px;  width:130px; height:54px; }
+    .hs-menu    { left:300px; top:18px;  width:130px; height:54px; }
+    .hs-about   { left:490px; top:18px;  width:140px; height:54px; }
+    .hs-logo    { left:646px; top: 0px;  width:74px;  height:86px; }  /* center logo */
+    .hs-chef    { left:885px; top:18px;  width:150px; height:54px; }
+    .hs-contact { left:1080px; top:18px; width:160px; height:54px; }
+
+    /* Buttons */
+    .hs-reserve { left: 96px; top:381px; width:260px; height:56px; }
+    .hs-wine    { left:523px; top:520px; width:360px; height:62px; }
+    .hs-events  { left:690px; top:611px; width:290px; height:62px; }
+
+    
+    .hs-welcome { left:520px; top:168px; width:330px; height:230px; }
+
+    
+    .hs-info    { left:980px; top:158px; width:300px; height:360px; }
+  </style>
+</head>
+<body>
+  <div id="stage" role="img" aria-label="Jupiter Steakhouse mockup with navigation and call-to-action buttons">
+
+    
+    <a class="hotspot hs-home"    href="#home"    title="Home">Home</a>
+    <a class="hotspot hs-menu"    href="#menu"    title="Menu">Menu</a>
+    <a class="hotspot hs-about"   href="#about"   title="About">About</a>
+    <a class="hotspot hs-logo"    href="#home"    title="Jupiter Steakhouse Logo">Logo</a>
+    <a class="hotspot hs-chef"    href="#chef"    title="Chef Team">Chef Team</a>
+    <a class="hotspot hs-contact" href="#contact" title="Contact">Contact</a>
+
+    
+    <a class="hotspot hs-reserve" href="#reserve" title="Reserve a Table">Reserve a Table</a>
+    <a class="hotspot hs-wine"    href="#wine"    title="Explore our Wine Cellar">Explore our Wine Cellar</a>
+    <a class="hotspot hs-events"  href="#events"  title="Upcoming Events">Upcoming Events</a>
+
+    
+    <a class="hotspot hs-welcome" href="#about"   title="Welcome text">Welcome panel</a>
+    <a class="hotspot hs-info"    href="#contact" title="Location & Hours">Info panel</a>
+  </div>
+
+  <script>
+    
+    window.addEventListener('keydown', (e) => {
+      if ((e.key || '').toLowerCase() === 'h') {
+        document.body.classList.toggle('show-hitboxes');
+      }
+    });
+  </script>
+</body>
+</html>
