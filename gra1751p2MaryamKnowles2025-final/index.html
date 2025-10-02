@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to Nova Mobile Devices | Maryam Knowles, 2025</title>
+  <meta name="description" content="Fixed-width, multi-panel single-page layout for a fictional mobile device manufacturer. Coursework project." />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Resets & Base ===== */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ccc; /* body bg */
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #0a0a0a;
+      line-height: 1.5;
+    }
+
+    /* Fixed wrapper per assignment */
+    #wrapper {
+      width: 1366px; /* fixed width */
+      display: block;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 5px 30px rgba(0,0,0,.12);
+    }
+
+    /* Typography */
+    h1, h2, h3 { margin: 0 0 .5rem; line-height: 1.2; }
+    h1 { font: 800 3rem/1.1 "Orbitron", sans-serif; letter-spacing: .5px; }
+    h2.section-title { font: 700 2rem/1.2 "Orbitron", sans-serif; margin: 0 0 1rem; }
+    h3 { font-weight: 600; font-size: 1.25rem; }
+    p { margin: 0 0 1rem; }
+    ul { margin: 0 0 1rem 1.25rem; }
+    a { color: #0a0a0a; text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+
+    /* Header + Nav */
+    .site-header {
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: .75rem 1rem;
+      background: linear-gradient(180deg, #ffffff, #f3f3f3);
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .brand { display: inline-flex; align-items: center; gap: .5rem; }
+    .brand-text { font-family: "Orbitron", sans-serif; font-weight: 700; letter-spacing: .5px; }
+    .brand-text span { font-weight: 500; opacity: .6; }
+
+    /* Keep logo consistent size no matter source image */
+    .brand-logo,
+    .site-header .brand img {
+      width: 42px !important;
+      height: 42px !important;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Nav styles + hover/active */
+    .site-nav ul { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; }
+    .nav-link {
+      position: relative; display: inline-block; padding: .5rem .75rem; border-radius: 10px;
+      transition: transform .15s ease, background-color .2s ease;
+    }
+    .nav-link:hover, .nav-link:focus { background-color: #111; color: #fff; transform: translateY(-1px); }
+    .nav-link.is-active { background-color: #0a0a0a; color: #fff; }
+
+    /* Panels */
+    .panel { padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+    .panel-home { background: linear-gradient(90deg, #f8fbff, #ffffff); }
+    .panel-products { background: #fff; }
+    .panel-accessories { background: #fafafa; }
+    .panel-software { background: #fff; }
+    .panel-support { background: #fafafa; }
+
+    /* Hero layout */
+    .hero { display: grid; grid-template-columns: 1fr 640px; align-items: center; gap: 2rem; }
+    .hero-copy p { max-width: 46ch; font-size: 1.125rem; color: #333; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block; border: 1px solid #111; background: #111; color: #fff;
+      padding: .75rem 1rem; border-radius: 12px; font-weight: 600; letter-spacing: .2px;
+    }
+    .btn:hover { background: #222; }
+
+    /* Cards grid */
+    .grid.cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .card {
+      border: 1px solid #eee; border-radius: 16px; padding: 1rem; background: #fff;
+      display: grid; gap: .5rem;
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.08); transform: translateY(-2px); }
+
+    /* Accessories grid */
+    .grid.accessories {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    }
+    .accessory { text-align: center; }
+    .accessory figcaption { margin-top: .5rem; font-weight: 600; }
+
+    /* Software layout */
+    .software-wrap {
+      display: grid; grid-template-columns: 1fr 600px; align-items: start; gap: 2rem;
+    }
+
+    /* Support layout */
+    .support-wrap {
+      display: grid; grid-template-columns: 520px 1fr; gap: 2rem;
+    }
+    .support-form {
+      display: grid; gap: .75rem; background: #fff; border: 1px solid #eee; border-radius: 16px; padding: 1rem;
+    }
+    .support-form label { display: grid; gap: .25rem; font-weight: 600; }
+    .support-form input, .support-form select, .support-form textarea {
+      border: 1px solid #ddd; border-radius: 10px; padding: .5rem .75rem; font: inherit;
+    }
+
+    /* Footer */
+    .site-footer { padding: 2rem; font-size: .875rem; color: #444; background: #f6f6f6; }
+
+    /* Anchor offset */
+    :target { scroll-margin-top: 80px; }
+
+    /* ===== Images: prevent stretching and keep proportions ===== */
+    #wrapper img {
+      max-width: 100%;
+      height: auto;       /* keeps natural aspect ratio */
+      display: block;
+    }
+    /* If any image has a hardcoded HTML height, cancel it */
+    #wrapper img[height] { height: auto !important; }
+
+    /* Hero image: cap the size within the 640px column */
+    .hero-device { width: min(640px, 100%); height: auto !important; border-radius: 12px; }
+
+    /* Card + accessory images: fill width, keep ratio */
+    .card-img,
+    .accessory-img {
+      width: 100% !important;
+      height: auto !important;
+      border-radius: 8px;
+      transition: transform .2s ease;
+    }
+    .card-img:hover,
+    .accessory-img:hover { transform: scale(1.03); }
+
+    /* ===== Responsive Embeds (YouTube & Map) ===== */
+    /* Container keeps a 16:9 aspect ratio while scaling */
+    .embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;     /* modern browsers keep ratio */
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ===== Rollover cursor ===== */
+    .rollover { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!-- Body background is set in CSS. Wrapper is a 1366px fixed-width centered layout per assignment. -->
+  <div id="wrapper">
+    <header class="site-header">
+      <a href="#home" class="brand">
+        <img src="Nova Logo.png" alt="Brand logo" width="42" height="42" class="brand-logo" />
+        <span class="brand-text">NOVA<span>mobile</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#products">Products</a></li>
+          <li><a class="nav-link" href="#accessories">Accessories</a></li>
+          <li><a class="nav-link" href="#software">Software</a></li>
+          <li><a class="nav-link" href="#support">Support</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- PANEL: HOME -->
+    <section id="home" class="panel panel-home" tabindex="-1" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1 id="home-title">Meet the Nova One</h1>
+          <p>Performance that fits in your palm. Precision aluminum. 120Hz display. All-day battery.</p>
+          <a href="#products" class="btn cta">Explore Products</a>
+        </div>
+        <!-- HTML width/height allowed; CSS forces proper proportions -->
+        <img class="hero-device rollover" src="Nova One.png" alt="Nova One phone hero" width="570" height="500" />
+      </div>
+    </section>
+
+    <!-- PANEL: PRODUCTS -->
+    <section id="products" class="panel panel-products" tabindex="-1" aria-labelledby="products-title">
+      <h2 id="products-title" class="section-title">Products</h2>
+      <div class="grid cards">
+        <article class="card">
+          <img class="rollover card-img" src="Nova One.png" data-rollover="images/prod-nova-one-hover.jpg" alt="Nova One smartphone" width="250" height="250" />
+          <h3>Nova One</h3>
+          <p>Flagship camera. Ultra-bright 6.5&quot; OLED. A17-class processor.</p>
+          <a href="#software" class="btn">See Software</a>
+        </article>
+        <article class="card">
+          <img class="rollover card-img" src="Nova Mini.png" data-rollover="images/prod-nova-mini-hover.jpg" alt="Nova Mini smartphone" width="250" height="250" />
+          <h3>Nova Mini</h3>
+          <p>Small size, big performance. Great for one-handed use.</p>
+          <a href="#accessories" class="btn">Match Accessories</a>
+        </article>
+        <article class="card">
+          <img class="rollover card-img" src="Nova Pro.png" data-rollover="images/prod-nova-pro-hover.jpg" alt="Nova Pro smartphone" width="250" height="250" />
+          <h3>Nova Pro</h3>
+          <p>For creators and pros. ProMotion 120Hz and triple-lens system.</p>
+          <a href="#support" class="btn">Get Support</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- PANEL: ACCESSORIES -->
+    <section id="accessories" class="panel panel-accessories" tabindex="-1" aria-labelledby="accessories-title">
+      <h2 id="accessories-title" class="section-title">Accessories</h2>
+      <div class="grid accessories">
+        <figure class="accessory">
+          <img class="rollover accessory-img" src="Nova Impact Case.png" data-rollover="images/acc-case-hover.jpg" alt="Protective case" width="250" height="250" />
+          <figcaption>Impact Case</figcaption>
+        </figure>
+        <figure class="accessory">
+          <img class="rollover accessory-img" src="Nova Buds.png" data-rollover="images/acc-buds-hover.jpg" alt="Wireless earbuds" width="250" height="250" />
+          <figcaption>Nova Buds</figcaption>
+        </figure>
+        <figure class="accessory">
+          <img class="rollover accessory-img" src="Nova Fast Charger.png" data-rollover="images/acc-charger-hover.jpg" alt="Fast charger" width="250" height="250" />
+          <figcaption>Fast Charger</figcaption>
+        </figure>
+        <figure class="accessory">
+          <img class="rollover accessory-img" src="Nova Watch.png" data-rollover="images/acc-watch-hover.jpg" alt="Smart watch" width="200" height="250" />
+          <figcaption>Nova Watch</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PANEL: SOFTWARE -->
+    <section id="software" class="panel panel-software" tabindex="-1" aria-labelledby="software-title">
+      <h2 id="software-title" class="section-title">Software</h2>
+      <div class="software-wrap">
+        <div class="copy">
+          <p>NovaOS brings privacy-forward features, intelligent power management, and smooth animations tuned to 120Hz.</p>
+          <ul class="features">
+            <li>Private Vault with on-device AI</li>
+            <li>Adaptive refresh-rate for extended battery life</li>
+            <li>Advanced camera pipeline with RAW+</li>
+          </ul>
+          <a class="btn" href="#support">Download &amp; Support</a>
+        </div>
+        <div class="media">
+          <!-- Responsive YouTube embed -->
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="NovaOS Overview"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL: SUPPORT -->
+    <section id="support" class="panel panel-support" tabindex="-1" aria-labelledby="support-title">
+      <h2 id="support-title" class="section-title">Support</h2>
+      <div class="support-wrap">
+        <form class="support-form" action="#" method="post">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+        <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Topic
+            <select name="topic">
+              <option>Repairs</option>
+              <option>Orders</option>
+              <option>Software updates</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4"></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+        </form>
+
+        <div class="map-embed">
+          <!-- Responsive OpenStreetMap embed (no API key needed) -->
+          <div class="embed">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-73.9905%2C40.7540%2C-73.9810%2C40.7605&layer=mapnik&marker=40.7580%2C-73.9855"
+              title="Nova HQ Map (Times Square)"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>© 2025, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', '#' + id);
+        }
+      });
+    });
+
+    // Active nav state on scroll
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute('href')));
+    const onScroll = () => {
+      const scrollY = window.scrollY + 100;
+      let active = null;
+      sections.forEach((sec, i) => {
+        const rect = sec.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        if (scrollY >= top) active = navLinks[i];
+      });
+      navLinks.forEach(l => l.classList.toggle('is-active', l === active));
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Image rollovers
+    document.querySelectorAll('img.rollover').forEach(img => {
+      const defaultSrc = img.getAttribute('src');
+      const hoverSrc = img.getAttribute('data-rollover');
+      if (!hoverSrc) return;
+      img.addEventListener('mouseenter', () => img.src = hoverSrc);
+      img.addEventListener('mouseleave', () => img.src = defaultSrc);
+    });
+
+    // Demo form handler
+    document.querySelector('.support-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Thanks! A support specialist will reach out shortly.');
+    });
+  </script>
+</body>
+</html>
