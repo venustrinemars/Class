@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- SEO Basics (CO-16) -->
+  <meta charset="utf-8" />
+  <title>Arcadia Performing Arts — Fixed-Width Single Page (1366px fixed layout)</title>
+  <meta name="description" content="Arcadia Performing Arts is a premier community theater. Explore our season highlights, watch videos, and find our location." />
+  <meta name="keywords" content="performing arts, theater, tickets, shows, concerts" />
+  <meta name="author" content="Your Name" />
+
+  <!-- Social Sharing (optional but good SEO hygiene) -->
+  <meta property="og:title" content="Arcadia Performing Arts — Fixed-Width Single Page" />
+  <meta property="og:description" content="Explore media highlights and get directions to our theater." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="images/arcadia-og.jpg" />
+
+  <!-- Fixed layout still benefits from proper scaling on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Web Fonts (CO-11) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/favicon.ico" />
+
+  <style>
+    /* ====== Base / Reset ====== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #1a1a1a; background: #0e0e12; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ====== Fixed-Width Wrapper (CO-1) ====== */
+    .page { width: 1366px; margin: 0 auto; background: transparent; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+
+    /* ====== Top Bar / Branding ====== */
+    .brand-bar { background: #0e0e12; color: #fff; }
+    .brand-inner { width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 10px 20px; }
+    .brand-logo { width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg,#d97706,#a21caf); display: inline-flex; align-items:center; justify-content:center; font-weight:700; font-family: 'Playfair Display', serif; }
+    .brand-title { font-family: 'Playfair Display', serif; font-size: 22px; letter-spacing: .5px; }
+
+    /* ====== Navigation (CO-6, CO-7, CO-8) ====== */
+    nav { background: #16161b; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #222; }
+    .nav { width: 1100px; margin: 0 auto; display: flex; align-items: center; }
+    .nav a { flex: 1; padding: 16px 0; text-align: center; font-weight: 600; color: #e5e7eb; letter-spacing: .3px; transition: background .2s, color .2s; position: relative; }
+    .nav a span { position: relative; z-index: 2; }
+    /* Rollover state */
+    .nav a::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #7c3aed, #22d3ee); opacity: 0; transition: opacity .2s; }
+    .nav a:hover { color: #0e0e12; }
+    .nav a:hover::after { opacity: 1; }
+
+    /* ====== Panels (CO-2, CO-3) ====== */
+    section.panel { padding: 64px 60px; border-bottom: 1px solid #eee; }
+    /* Default panels are white; we'll override Home to be transparent */
+    .panel { background: #ffffff; }
+    .panel--transparent { background: transparent; color: #e5e7eb; }
+    .panel--transparent .lede { color: #cbd5e1; }
+    .panel--transparent a { color: #93c5fd; }
+    .panel h2 { font-family: 'Playfair Display', serif; font-size: 40px; margin: 0 0 16px; }
+    .lede { font-size: 18px; color: #4b5563; margin-bottom: 28px; max-width: 70ch; }
+
+    /* Home Panel layout */
+    .hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: center; }
+    .hero-card { background: rgba(255,255,255,.08); color: #e5e7eb; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.2); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .hero-card .media { position: relative; }
+    .hero-card .media img { width: 100%; height: 320px; object-fit: cover; filter: saturate(1.05) contrast(1.05); }
+    .hero-card .caption { padding: 18px 20px; font-size: 14px; color: #e5e7eb; border-top: 1px solid rgba(255,255,255,.15); background: rgba(0,0,0,.25); }
+
+    .cta-row { display: flex; gap: 14px; margin-top: 14px; }
+    .btn { display: inline-flex; align-items:center; gap: 10px; padding: 12px 18px; border-radius: 999px; font-weight:600; border: 2px solid #111827; background: #111827; color: #fff; transition: transform .08s ease-in-out, box-shadow .2s; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+    .btn--ghost { background: transparent; color: #111827; }
+
+    /* Media Panel */
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .video { position: relative; padding-top: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 26px rgba(0,0,0,.15); }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Image Rollover Gallery (CO-9, CO-18) */
+    .rollover-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+    .rollover { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+    .rollover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .2s ease; }
+    .rollover img.hover { opacity: 0; }
+    .rollover:hover img.hover { opacity: 1; }
+
+    /* Location Panel */
+    .location { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .map { border-radius: 14px; overflow: hidden; box-shadow: 0 12px 26px rgba(0,0,0,.15); }
+    .map iframe { width: 100%; height: 380px; border: 0; }
+    .address { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px; }
+
+    /* Footer */
+    footer { padding: 28px 60px; color: #6b7280; font-size: 14px; background: #fafafa; }
+
+    /* Helper: anchor offset for sticky nav */
+    .anchor { position: relative; top: -70px; visibility: hidden; }
+
+    /* Accessibility */
+    .skip-link { position: absolute; left: -9999px; top: -9999px; }
+    .skip-link:focus { left: 16px; top: 16px; background:#111827; color:#fff; padding:10px 14px; border-radius: 8px; z-index: 9999; }
+
+    
+    @media print {
+      nav, .brand-bar { display: none; }
+      .page { box-shadow: none; border: none; }
+    }
+  </style>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PerformingArtsTheater",
+    "name": "Arcadia Performing Arts",
+    "url": "https://example.com/",
+    "image": "https://example.com/images/hero-stage.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Center Ave",
+      "addressLocality": "Arcadia",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-212-555-0123"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  
+  <div class="brand-bar" role="banner">
+    <div class="brand-inner">
+      <div class="brand-logo" aria-hidden="true">A</div>
+      <div class="brand-title" aria-label="Arcadia Performing Arts">Arcadia Performing Arts</div>
+    </div>
+  </div>
+
+  
+  <nav aria-label="Primary">
+    <div class="nav" role="navigation">
+      <a href="#home" aria-label="Go to Home"><span>Home</span></a>
+      <a href="#media" aria-label="Go to Media"><span>Media</span></a>
+      <a href="#location" aria-label="Go to Location"><span>Location</span></a>
+    </div>
+  </nav>
+
+  <main class="page" id="top">
+    <!-- HOME PANEL -->
+    <span id="home" class="anchor" aria-hidden="true"></span>
+    <section class="panel panel--transparent" aria-labelledby="home-title">
+      <h2 id="home-title">Fall Season Highlights</h2>
+      <p class="lede">Welcome to Arcadia Performing Arts — a community stage for music, dance, and drama. Explore upcoming features, watch behind‑the‑scenes clips, and plan your visit below.</p>
+
+      <div class="hero">
+        <div>
+          <div class="hero-card">
+            <div class="media">
+              
+              <img src="Theater stage curtain.jpg" width="800" height="450" alt="Warm stage lights over a velvet-curtained theater stage" loading="eager">
+            </div>
+            <div class="caption">Photo: © Arcadia Performing Arts</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="#media">Watch a clip</a>
+            <a class="btn btn--ghost" href="#location">Get directions</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 10px;font-family:'Playfair Display',serif;">Tonight at Arcadia</h3>
+          <ul style="margin:0;padding-left:18px;line-height:1.7;">
+            <li><strong>7:30 PM</strong> — Contemporary Dance Company</li>
+            <li><strong>8:45 PM</strong> — String Quartet in C Minor</li>
+            <li><strong>10:00 PM</strong> — Improv Theater: Late Show</li>
+          </ul>
+          <p style="margin-top:12px;color:#6b7280">Box Office: <a href="tel:+12125550123">(212) 555‑0123</a> • <a href="mailto:tickets@example.com">tickets@example.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    
+    <span id="media" class="anchor" aria-hidden="true"></span>
+    <section class="panel" aria-labelledby="media-title">
+      <h2 id="media-title">Media</h2>
+      <p class="lede">Featured video and a rollover image gallery. Hover any tile to see an alternate artwork (CO‑18).</p>
+
+      
+      <div class="media-grid" role="region" aria-label="Featured Videos">
+        <div class="video" aria-label="Featured performance video">
+          
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/P77YBq8-jys?si=8sIYbbaifpoKaKzn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video" aria-label="Second performance video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/BG1lg9GV9WY?si=VdVCfyQ6y0pBjD42" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video" aria-label="Third performance video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/r92NiK08l6Q?si=aDT_HAy4UYOP0gEB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+     
+      <div class="rollover-grid" role="list" aria-label="Rollover gallery">
+      
+        <a class="rollover" href="images/posters/poster-01_default.jpg" target="_blank" role="listitem" aria-label="Open Poster 01">
+          <img src="images/posters/poster-01_default.jpg" alt="Poster 01 — default artwork">
+          <img class="hover" src='AdobeStock_254377782.jpeg' alt="Poster 01 — hover artwork">
+        </a>
+        <a class="rollover" href="images/posters/poster-02_default.jpg" target="_blank" role="listitem" aria-label="Open Poster 02">
+          <img src="images/posters/poster-02_default.jpg" alt="Poster 02 — default artwork">
+          <img class="hover" src="AdobeStock_308067765.jpeg" alt="Poster 02 — hover artwork">
+        </a>
+        <a class="rollover" href="images/posters/poster-03_default.jpg" target="_blank" role="listitem" aria-label="Open Poster 03">
+          <img src="images/posters/poster-03_default.jpg" alt="Poster 03 — default artwork">
+          <img class="hover" src="AdobeStock_331004049.jpeg" alt="Poster 03 — hover artwork">
+        </a>
+        <a class="rollover" href="images/posters/poster-04_default.jpg" target="_blank" role="listitem" aria-label="Open Poster 04">
+          <img src="images/posters/poster-04_default.jpg" alt="Poster 04 — default artwork">
+          <img class="hover" src="AdobeStock_364597532.jpeg" alt="Poster 04 — hover artwork">
+        </a>
+      </div>
+    </section>
+
+    <!-- LOCATION PANEL -->
+    <span id="location" class="anchor" aria-hidden="true"></span>
+    <section class="panel" aria-labelledby="location-title">
+      <h2 id="location-title">Location & Hours</h2>
+      <p class="lede">Find us in the heart of the arts district. Parking and public transit are steps away.</p>
+
+      <div class="location">
+        <div class="map" aria-label="Google Map">
+       
+          <iframe title="Arcadia Performing Arts on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=123%20Center%20Ave%20Arcadia%20NY%2010001&output=embed"></iframe>
+        </div>
+        <div class="address">
+          <h3 style="margin-top:0">Visit</h3>
+          <p>
+            Arcadia Performing Arts<br />
+            123 Center Ave, Arcadia, NY 10001<br />
+            <a href="https://maps.google.com/?q=123+Center+Ave+Arcadia+NY+10001" target="_blank" rel="noopener">Open in Google Maps</a>
+          </p>
+          <h3>Hours</h3>
+          <p>Box Office: Tue–Sat 12:00–19:00 • Sun 12:00–17:00</p>
+          <h3>Accessibility</h3>
+          <p>Wheelchair seating available. Assistive listening devices on request.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+
+    </footer>
+  </main>
+
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
