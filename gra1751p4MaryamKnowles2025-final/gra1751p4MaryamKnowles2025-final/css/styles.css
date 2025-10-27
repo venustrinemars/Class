@@ -1,0 +1,376 @@
+:root {
+  --brand: #7C6CEB;        
+  --brand-2: #7C6CEB;      
+  --accent: #e11d48;       
+  --ink: #7C6CEB;
+  --text: #7C6CEB;
+  --muted: #475569;
+  --paper: #ffffff;
+  --canvas: #cccccc;
+  --link: #2563eb;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--canvas);
+  color: var(--text);
+  font-family: "yoonc-spring-variety", sans-serif;
+font-weight: 400;
+font-style: normal;
+;
+}
+
+.wrapper {
+  width: 1366px;               
+  margin: 0 auto;
+  background: var(--paper);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+header.site-header {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  color: white;
+  padding: 20px 32px;
+  position: relative;
+}
+
+.brand { display:flex; align-items:center; gap:16px; }
+.brand img { width: 64px; height:64px; object-fit:cover; border-radius:8px; }
+.brand h1 { margin:0; font-size: clamp(24px, 3vw, 36px); letter-spacing:.5px; }
+.brand p { margin:0; color:#d1d5db; font-size: 14px; }
+
+nav.primary-nav {
+  background: #7C6CEB;
+}
+
+.primary-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.primary-nav a {
+  display: block;
+  padding: 14px 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .3px;
+  transition: background-color .2s ease, color .2s ease, transform .05s ease;
+  position: relative;
+}
+
+.primary-nav a:hover,
+.primary-nav a:focus {
+  background: var(--accent);
+  color: white;
+}
+
+.primary-nav a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+
+.primary-nav a.active::after {
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:3px; background: #fbbf24;
+}
+
+main { padding: 28px 32px 48px; }
+main h2 { margin-top:0; font-size: 28px; }
+main .lede { color: var(--muted); max-width: 90ch; }
+
+.button { 
+  display:inline-block; padding:10px 16px; border-radius:8px; 
+  text-decoration:none; background:var(--accent); color:white; font-weight:700;
+}
+.button:hover { filter: brightness(1.05); }
+
+/* AFTER LIKE Neon Pink Button */
+.rollover {
+  display: inline-block;
+  padding: 12px 26px;
+  background-color: #FF3FA9; /* Neon Pink */
+  color: #ffffff;
+  font-family: "yoonc-spring-variety", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  transition: 0.25s ease;
+}
+
+.rollover:hover {
+  background-color: #FF3FA9;
+  transform: translateY(-2px);
+}
+
+/* ---------- IVE Mailings — Themed Form ---------- */
+:root {
+  /* ensure these exist; safe to duplicate */
+  --accent: #FF3FA9;        /* Neon pink */
+  --accent-dark: #E1006D;   /* Hover/active */
+  --highlight: #7A3FFF;     /* Purple accent */
+  --ink: #111111;           /* Body text */
+}
+
+.subscribe-card {
+  background: #ffffff;
+  border: 2px solid #f3e8ff;               /* faint lilac border */
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  max-width: 720px;
+  margin: 20px auto 32px;
+}
+
+.subscribe-card h3 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+/* Inputs */
+.input, .select, .textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+  animation: placeholderPulse 3s ease-in-out infinite;
+}
+/* ---------- IVE NEWS — Cards + Neon Headlines ---------- */
+:root {
+  /* ensure these exist */
+  --accent: #FF3FA9;       /* Neon pink */
+  --accent-dark: #E1006D;  /* Hover pink */
+  --highlight: #7A3FFF;    /* Purple accent */
+  --ink: #111111;          /* Body text */
+}
+
+/* Page title pop */
+.page-title {
+  font-size: clamp(26px, 3vw, 34px);
+  letter-spacing: .4px;
+  margin: 8px 0 18px;
+  position: relative;
+}
+.page-title::after {
+  content:"";
+  display:block;
+  width: 68px;
+  height: 4px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  margin-top: 8px;
+}
+
+/* Card grid */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Card */
+.news-card {
+  background: #fff;
+  border: 2px solid #f3e8ff; /* faint lilac */
+  border-radius: 14px;
+  padding: 16px 16px 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.news-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,63,169,.45);
+  box-shadow: 0 14px 30px rgba(255,63,169,.18);
+}
+
+/* Optional thumbnail */
+.news-thumb {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* Headline link with neon glow on hover */
+.news-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+.news-title a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition: color .15s ease, text-shadow .15s ease;
+}
+.news-title a:hover,
+.news-title a:focus {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(255,63,169,.6), 0 0 22px rgba(122,63,255,.35);
+}
+
+/* Underline slide */
+.news-title a::after {
+  content:"";
+  position:absolute; left:0; bottom:-3px;
+  width:0; height:3px; border-radius:3px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  transition: width .18s ease;
+}
+.news-title a:hover::after,
+.news-title a:focus::after { width:100%; }
+
+/* Meta row */
+.news-meta {
+  font-size: 13px;
+  color: #6b7280; /* muted */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.tag {
+  display:inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: #fce7f3; /* soft pink pill */
+  color: #9d174d;
+}
+
+/* Body text in card */
+.news-body { margin: 0; color: var(--ink); }
+
+/* Responsive tweak for your fixed-width site when viewport shrinks */
+@media (max-width: 1200px) {
+  .news-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 800px) {
+  .news-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Placeholder pulse animation */
+@keyframes placeholderPulse {
+  0%, 100% { color: #b3b8c2; }
+  50%      { color: #9ca3af; }
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255,63,169,.18);
+}
+
+/* Accessibility focus-visible */
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* Basic invalid/valid highlighting (HTML5 validation) */
+.input:invalid { border-color: #f43f5e; }
+.input:valid   { border-color: #94d2bd; }
+
+/* Button — matches After LIKE */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,63,169,.35);
+}
+
+.btn--primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+/* Optional success/notice styling (no JS) */
+.notice {
+  display: none;
+  margin: 16px auto 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.notice.success {
+  background: #ecfeff;
+  color: #0e7490;
+  border: 2px solid #a5f3fc;
+}
+
+/* CSS-only "thanks" reveal after submission to #thanks anchor */
+#thanks:target { display: block; }
+
+
+/* Footer */
+footer.site-footer {
+  background:#7C6CEB;
+  color:#cbd5e1;
+  padding:24px 32px 40px;
+  font-size: 14px;
+}
+footer .cols { display:grid; grid-template-columns: 2fr 1fr 1fr; gap: 24px; }
+footer a { color:#93c5fd; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
+footer .legal { margin-top: 16px; font-size: 12px; color: #cbd5e1; }
+
+
+@media (max-width: 1366px) {
+  body { overflow-x: auto; }
+}
