@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to ALIA | Maryam Knowles, 2025</title>
+  <meta name="description" content="Single, fixed-width apparel product page showcasing front and back views and three color options. Coursework project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header role="banner">
+      <div class="brand">ALIA</div>
+      <nav aria-label="Primary">
+        <a href="#">Men</a>
+        <a href="#">Women</a>
+        <a href="#">Sale</a>
+      </nav>
+    </header>
+
+    <main id="main" role="main" aria-labelledby="product-title">
+      
+      <section id="product" class="section" aria-live="polite">
+        
+        <img class="is-visible" data-view="front" src="assets/img/dress-black-front.png" alt="Black Diamond Gala Gown—front view">
+        <img data-view="back" src="assets/img/dress-black-back.png" alt="Black Diamond Gala Gown—back view">
+      </section>
+
+      <!-- Right: details + swatches -->
+      <section class="section details">
+        <h1 id="product-title">Diamond Gala Gown</h1>
+        <div class="price">$750.00</div>
+        <p class="description">
+          The Black Diamond Gala Gown embodies timeless glamour. Featuring a strapless silhouette, cascading star-like sparkle, and a graceful high slit, this gown is designed to captivate. Finished with a sleek metallic waist detail, it delivers refined elegance for your most unforgettable nights.
+        </p>
+
+        <h2 style="font-size:18px;margin:0;">Colors</h2>
+        <div class="swatches" role="tablist" aria-label="Choose a color">
+          <a href="#" role="tab" aria-selected="true" data-color="black" title="Black">
+            <img src="assets/img/color_000000.png" alt="Black color swatch">
+          </a>
+          <a href="#" role="tab" aria-selected="false" data-color="pink" title="Pink">
+            <img src="assets/img/color_F04DA8.png" alt="Pink color swatch">
+          </a>
+          <a href="#" role="tab" aria-selected="false" data-color="silver" title="Silver">
+            <img src="assets/img/color_DCEAF5.png" alt="Silver color swatch">
+          </a>
+        </div>
+
+       <div class="actions">
+  <a href="#" class="btn btn-primary">Add to Cart</a>
+
+  <div class="info-buttons">
+    <a href="#" class="btn btn-secondary">Size Guide</a>
+    <a href="#" class="btn btn-secondary">Fabric &amp; Care</a>
+  </div>
+</div>
+
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <p>© 2025, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
