@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber City – HTML5 Canvas Animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1 class="site-title">Cyber City</h1>
+  <p class="site-tagline">Hover the skyline to bring the city to life.</p>
+</header>
+
+<main>
+  <section class="hero">
+    <canvas id="cityCanvas" width="1366" height="768"></canvas>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="footer-copy">
+    © <span id="year"></span>, Maryam Knowles<br>
+    This is a fictitious web page created solely for the purpose of education and training. 
+    All products and people associated with this web page are also fictitious. Any resemblance 
+    to real brands, products, or people is purely coincidental. Information provided about the 
+    product is also fictitious and should not be construed to be representative of actual products 
+    on the market in a similar product category.
+  </p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="js/canvas-animation.js"></script>
+</body>
+</html>
