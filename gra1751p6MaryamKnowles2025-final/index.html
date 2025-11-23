@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Azure Horizons Travel | Maryam Knowles, 2025</title>
+
+ 
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <style>
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #cfd8dc; 
+      font-family: "Playfair Display";
+      color: #333333;
+    }
+
+    
+    #wrapper {
+      width: 1366px;
+      margin: 0 auto; 
+      background-color: #ffffff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-area img {
+      display: block;
+      max-height: 60px;
+    }
+
+    .logo-text h1 {
+      margin: 0;
+      font-family: "Playfair Display";
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #0077b6;
+    }
+
+    .logo-text h2 {
+      margin: 4px 0 0;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: none;
+      color: #555555;
+    }
+
+    .header-cta {
+      text-align: right;
+      font-family: "Playfair Display";
+    }
+
+    .header-cta p {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      background-color: #ff6f61;
+      color: #ffffff;
+      border-radius: 4px;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    
+    #hero {
+      position: relative;
+    }
+
+    #hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+  .hero-overlay {
+  position: absolute;
+  bottom: 20px;                
+  left: 70%;               
+  transform: translateX(-50%); 
+  padding: 20px 24px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  max-width: 500px;
+  border-radius: 4px;
+  text-align: center;         
+}
+
+
+    }
+
+    .hero-overlay h3 {
+      margin: 0 0 6px;
+      font-family: "Playfair Display";
+      font-size: 22px;
+    }
+
+    .hero-overlay p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    
+    main {
+      padding: 30px 40px 40px;
+      display: flex;
+      gap: 30px;
+    }
+
+    
+    .tabs-column {
+      flex: 2;
+    }
+
+    
+    .info-column {
+      flex: 1;
+    }
+
+    .info-column h4 {
+      font-family: "Playfair Display";
+      font-size: 16px;
+      margin-top: 0;
+    }
+
+    .info-box {
+      background-color: #f5f5f5;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    
+
+    #tabs {
+      font-family: "Playfair Display";
+      font-size: 14px;
+    }
+
+    #tabs .ui-tabs-nav {
+      padding: 0;
+      background: transparent;
+      border: none;
+    }
+
+    #tabs .ui-tabs-nav li {
+      margin: 0 4px 0 0;
+      border-radius: 4px 4px 0 0;
+      overflow: hidden;
+    }
+
+    #tabs .ui-tabs-nav li a {
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #tabs .ui-tabs-nav li img {
+      max-height: 18px;
+      width: auto;
+      display: inline-block;
+    }
+
+    #tabs .ui-tabs-panel {
+      padding: 18px 16px 20px;
+      border-radius: 0 4px 4px 4px;
+      border-top: 1px solid #cccccc;
+      background-color: #fafafa;
+    }
+
+    
+    #tabs .ui-tabs-nav li.ui-tabs-active {
+      background-color: #ff6f61;
+    }
+
+    #tabs .ui-tabs-nav li.ui-tabs-active a {
+      color: #ffffff;
+    }
+
+    
+    .tab-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 20px;
+    }
+
+    .tab-form .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+      text-transform: none; 
+      color: #555555;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      font-size: 13px;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    .form-actions {
+      margin-top: 16px;
+      text-align: right;
+    }
+
+    .form-actions .btn-primary {
+      font-size: 13px;
+    }
+
+    
+    footer {
+      padding: 16px 40px 24px;
+      background-color: #eceff1;
+      font-size: 11px;
+      line-height: 1.4;
+      border-top: 1px solid #cfd8dc;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    
+    .section-heading {
+      font-family: "Playfair Display";
+      font-size: 18px;
+      margin: 0 0 6px;
+      color: #0077b6;
+    }
+
+    .section-subheading {
+      font-size: 13px;
+      color: #666666;
+      margin: 0 0 18px;
+    }
+  </style>
+
+  <script>
+    
+    $(function () {
+      $("#tabs").tabs();
+
+      
+      $(".date-input").datepicker();
+    });
+  </script>
+</head>
+<body>
+
+  <div id="wrapper">
+
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="logo-area">
+        <img src="logo-azure-horizons.png" alt="Azure Horizons Travel logo">
+        <div class="logo-text">
+          <h1>Azure Horizons Travel</h1>
+          <h2>Curated escapes across the Mediterranean</h2>
+        </div>
+      </div>
+      <div class="header-cta">
+        <p>Questions? Call us: (555) 123-4567</p>
+        <a href="#tabs" class="btn-primary">Plan Your Trip</a>
+      </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <img src="hero-mediterranean-sunset.jpeg" alt="Mediterranean coast at sunset">
+      <div class="hero-overlay">
+        <h3>Book your 2025 summer getaway</h3>
+        <p>From island-hopping in Greece to seaside cafés in Italy, our travel experts curate
+           unforgettable journeys tailored to you.</p>
+      </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+      <!-- Tabs column -->
+      <div class="tabs-column">
+        <h3 class="section-heading">Search &amp; Book</h3>
+        <p class="section-subheading">
+          Compare flights, hotels, cars, bundles, and cruises in one place.
+        </p>
+
+        <!-- jQuery UI Tabs -->
+        <div id="tabs">
+          <ul>
+            <li>
+              <a href="#tab-flights">
+                <img src="icon-flight.png" alt="Flights icon"> Flights
+              </a>
+            </li>
+            <li>
+              <a href="#tab-hotels">
+                <img src="icon-hotel.png" alt="Hotels icon"> Hotels
+              </a>
+            </li>
+            <li>
+              <a href="#tab-cars">
+                <img src="icon-car.png" alt="Cars icon"> Cars
+              </a>
+            </li>
+            <li>
+              <a href="#tab-bundles">
+                <img src="icon-bundle.png" alt="Bundles icon"> Bundles
+              </a>
+            </li>
+            <li>
+              <a href="#tab-cruises">
+                <img src="icon-cruise.png" alt="Cruises icon"> Cruises
+              </a>
+            </li>
+          </ul>
+
+          <!-- Flights tab -->
+          <div id="tab-flights">
+            <form class="tab-form">
+              <div>
+                <label for="flight-from">From</label>
+                <input type="text" id="flight-from" name="flight-from" placeholder="City or airport">
+              </div>
+              <div>
+                <label for="flight-to">To</label>
+                <input type="text" id="flight-to" name="flight-to" placeholder="City or airport">
+              </div>
+              <div>
+                <label for="flight-depart">Departure date</label>
+                <input type="text" id="flight-depart" class="date-input" name="flight-depart" placeholder="Select date">
+              </div>
+              <div>
+                <label for="flight-return">Return date</label>
+                <input type="text" id="flight-return" class="date-input" name="flight-return" placeholder="Select date">
+              </div>
+              <div>
+                <label for="flight-class">Class</label>
+                <select id="flight-class" name="flight-class">
+                  <option>Economy</option>
+                  <option>Premium Economy</option>
+                  <option>Business</option>
+                  <option>First</option>
+                </select>
+              </div>
+              <div>
+                <label for="flight-passengers">Travelers</label>
+                <select id="flight-passengers" name="flight-passengers">
+                  <option>1 adult</option>
+                  <option>2 adults</option>
+                  <option>3 adults</option>
+                  <option>Family</option>
+                </select>
+              </div>
+              <div class="full-width form-actions">
+                <button type="submit" class="btn-primary">Search Flights</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Hotels tab -->
+          <div id="tab-hotels">
+            <form class="tab-form">
+              <div>
+                <label for="hotel-destination">Destination</label>
+                <input type="text" id="hotel-destination" name="hotel-destination" placeholder="City or region">
+              </div>
+              <div>
+                <label for="hotel-star-rating">Minimum rating</label>
+                <select id="hotel-star-rating" name="hotel-star-rating">
+                  <option>Any</option>
+                  <option>3 stars</option>
+                  <option>4 stars</option>
+                  <option>5 stars</option>
+                </select>
+              </div>
+              <div>
+                <label for="hotel-checkin">Check-in date</label>
+                <input type="text" id="hotel-checkin" class="date-input" name="hotel-checkin" placeholder="Select date">
+              </div>
+              <div>
+                <label for="hotel-checkout">Check-out date</label>
+                <input type="text" id="hotel-checkout" class="date-input" name="hotel-checkout" placeholder="Select date">
+              </div>
+              <div>
+                <label for="hotel-guests">Guests</label>
+                <select id="hotel-guests" name="hotel-guests">
+                  <option>2 guests</option>
+                  <option>3 guests</option>
+                  <option>4 guests</option>
+                  <option>Group</option>
+                </select>
+              </div>
+              <div>
+                <label for="hotel-room-type">Room type</label>
+                <select id="hotel-room-type" name="hotel-room-type">
+                  <option>Standard</option>
+                  <option>Deluxe</option>
+                  <option>Suite</option>
+                  <option>Villa</option>
+                </select>
+              </div>
+              <div class="full-width form-actions">
+                <button type="submit" class="btn-primary">Search Hotels</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Cars tab -->
+          <div id="tab-cars">
+            <form class="tab-form">
+              <div>
+                <label for="car-pickup">Pick-up location</label>
+                <input type="text" id="car-pickup" name="car-pickup" placeholder="City or airport">
+              </div>
+              <div>
+                <label for="car-dropoff">Drop-off location</label>
+                <input type="text" id="car-dropoff" name="car-dropoff" placeholder="Same or different city">
+              </div>
+              <div>
+                <label for="car-pickup-date">Pick-up date</label>
+                <input type="text" id="car-pickup-date" class="date-input" name="car-pickup-date" placeholder="Select date">
+              </div>
+              <div>
+                <label for="car-dropoff-date">Drop-off date</label>
+                <input type="text" id="car-dropoff-date" class="date-input" name="car-dropoff-date" placeholder="Select date">
+              </div>
+              <div>
+                <label for="car-type">Car type</label>
+                <select id="car-type" name="car-type">
+                  <option>Economy</option>
+                  <option>Compact</option>
+                  <option>SUV</option>
+                  <option>Luxury</option>
+                </select>
+              </div>
+              <div>
+                <label for="car-driver-age">Driver age</label>
+                <select id="car-driver-age" name="car-driver-age">
+                  <option>25+</option>
+                  <option>21–24</option>
+                  <option>Under 21</option>
+                </select>
+              </div>
+              <div class="full-width form-actions">
+                <button type="submit" class="btn-primary">Search Cars</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Bundles tab -->
+          <div id="tab-bundles">
+            <form class="tab-form">
+              <div>
+                <label for="bundle-origin">From</label>
+                <input type="text" id="bundle-origin" name="bundle-origin" placeholder="City or airport">
+              </div>
+              <div>
+                <label for="bundle-destination">To</label>
+                <input type="text" id="bundle-destination" name="bundle-destination" placeholder="City or island">
+              </div>
+              <div>
+                <label for="bundle-depart">Departure date</label>
+                <input type="text" id="bundle-depart" class="date-input" name="bundle-depart" placeholder="Select date">
+              </div>
+              <div>
+                <label for="bundle-return">Return date</label>
+                <input type="text" id="bundle-return" class="date-input" name="bundle-return" placeholder="Select date">
+              </div>
+              <div>
+                <label for="bundle-type">Bundle type</label>
+                <select id="bundle-type" name="bundle-type">
+                  <option>Flight + Hotel</option>
+                  <option>Flight + Hotel + Car</option>
+                  <option>Hotel + Activities</option>
+                </select>
+              </div>
+              <div>
+                <label for="bundle-budget">Budget per person</label>
+                <select id="bundle-budget" name="bundle-budget">
+                  <option>$800–$1,200</option>
+                  <option>$1,200–$1,800</option>
+                  <option>$1,800–$2,500</option>
+                  <option>$2,500+</option>
+                </select>
+              </div>
+              <div class="full-width form-actions">
+                <button type="submit" class="btn-primary">Search Bundles</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Cruises tab -->
+          <div id="tab-cruises">
+            <form class="tab-form">
+              <div>
+                <label for="cruise-region">Region</label>
+                <select id="cruise-region" name="cruise-region">
+                  <option>Mediterranean</option>
+                  <option>Adriatic</option>
+                  <option>Northern Europe</option>
+                  <option>Transatlantic</option>
+                </select>
+              </div>
+              <div>
+                <label for="cruise-length">Length</label>
+                <select id="cruise-length" name="cruise-length">
+                  <option>3–5 nights</option>
+                  <option>6–8 nights</option>
+                  <option>9–12 nights</option>
+                  <option>13+ nights</option>
+                </select>
+              </div>
+              <div>
+                <label for="cruise-departure-date">Departure date</label>
+                <input type="text" id="cruise-departure-date" class="date-input" name="cruise-departure-date" placeholder="Select date">
+              </div>
+              <div>
+                <label for="cruise-cabin-type">Cabin type</label>
+                <select id="cruise-cabin-type" name="cruise-cabin-type">
+                  <option>Interior</option>
+                  <option>Oceanview</option>
+                  <option>Balcony</option>
+                  <option>Suite</option>
+                </select>
+              </div>
+              <div>
+                <label for="cruise-guests">Guests</label>
+                <select id="cruise-guests" name="cruise-guests">
+                  <option>2 guests</option>
+                  <option>3 guests</option>
+                  <option>Family</option>
+                  <option>Group</option>
+                </select>
+              </div>
+              <div>
+                <label for="cruise-line">Cruise line (optional)</label>
+                <input type="text" id="cruise-line" name="cruise-line" placeholder="Any line">
+              </div>
+              <div class="full-width form-actions">
+                <button type="submit" class="btn-primary">Search Cruises</button>
+              </div>
+            </form>
+          </div>
+
+        </div> <!-- /#tabs -->
+      </div>
+
+      <!-- Right info column -->
+      <aside class="info-column">
+        <div class="info-box">
+          <strong>Travel agency promise</strong>
+          Your trips are hand-crafted by real humans who have visited every destination we recommend.
+        </div>
+        <div class="info-box">
+          <strong>Design principles</strong>
+          Alignment, proximity, contrast, and hierarchy guide this layout. Key actions are emphasized
+          using color and placement rather than all-caps text.
+        </div>
+        <div class="info-box">
+          <strong>Need inspiration?</strong>
+          Start with our featured Mediterranean itineraries and customize them with a travel specialist.
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>© 2025, Maryam Knowles. This is a fictitious web page created solely for the purpose
+      of education and training. All products and people associated with this web page are also fictitious.
+      Any resemblance to real brands, products, or people is purely coincidental. Information provided about
+      the product is also fictitious and should not be construed to be representative of actual products
+      on the market in a similar product category.</p>
+    </footer>
+
+  </div> 
+
+</body>
+</html>
