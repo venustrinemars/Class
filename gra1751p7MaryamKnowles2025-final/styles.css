@@ -1,0 +1,330 @@
+/* GLOBAL ----------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #F20F22 0, #591C27 45%, #14070C 100%);
+  font-family: "obvia-condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #FFF;
+  line-height: 1.5;
+}
+
+/* WRAPPER ---------------------------- */
+
+#wrapper {
+  width: 1366px;
+  margin: 30px auto 0;
+  background: linear-gradient(145deg, #3B6D8C 0%, #1f3b4f 45%, #591C27 100%);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+/* HEADER & LOGO ---------------------- */
+
+#site-header {
+  padding: 20px 32px;
+  border-bottom: 4px solid #F20F22;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  background: rgba(15, 8, 18, 0.9);
+}
+
+.logo-area {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.logo {
+  height: 72px;
+  width: auto;
+}
+
+.branding h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #f8d7ff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* NAV ------------------------------- */
+
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+#main-nav a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease,
+              box-shadow 0.2s ease;
+  color: #fdf4f9;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(249, 162, 222, 0.5);
+  background: rgba(21, 31, 52, 0.4);
+}
+
+#main-nav a:hover {
+  background: #D94389;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(217, 67, 137, 0.9);
+  transform: translateY(-1px);
+}
+
+/* MAIN CONTENT ---------------------- */
+
+#content {
+  padding: 28px 32px 40px;
+}
+
+/* HERO ------------------------------ */
+
+#hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1.6fr;
+  gap: 32px;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+.hero-copy h2 {
+  font-size: 2.2rem;
+  margin: 0 0 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F20F22;
+}
+
+.hero-copy p {
+  font-size: 1rem;
+  max-width: 34rem;
+  color: #fbe9ff;
+}
+
+/* SECTIONS -------------------------- */
+
+.content-section {
+  margin-bottom: 40px;
+}
+
+.content-section h2 {
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #D94389;
+  position: relative;
+}
+
+.content-section h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #F20F22, #F28241);
+}
+
+.content-section p {
+  margin: 0;
+  color: #fdf5ff;
+}
+
+/* MENU GRID ------------------------- */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.menu-item {
+  background: rgba(11, 24, 42, 0.7);
+  border-radius: 14px;
+  padding: 10px 10px 14px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.menu-item img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.menu-item h3 {
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+  color: #F28241;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.menu-item p {
+  font-size: 0.9rem;
+  color: #f7e8ff;
+}
+
+/* FORM ------------------------------ */
+
+#register p {
+  margin-bottom: 16px;
+  color: #fdf5ff;
+}
+
+form {
+  background: rgba(6, 14, 26, 0.85);
+  border-radius: 14px;
+  padding: 20px 22px 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  max-width: 720px;
+}
+
+form label {
+  display: inline-block;
+  width: 190px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #f4d9ff;
+}
+
+form input,
+form select {
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background-color: rgba(5, 13, 25, 0.85);
+  color: #fff;
+  font-size: 0.9rem;
+  min-width: 260px;
+}
+
+form input::placeholder {
+  color: rgba(250, 215, 255, 0.6);
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #F20F22;
+  box-shadow: 0 0 0 2px rgba(242, 15, 34, 0.4);
+}
+
+/* Fieldsets */
+
+.form-group {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 10px 12px 12px;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+
+.form-group legend {
+  padding: 0 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #D94389;
+}
+
+.form-group label {
+  width: auto;
+  margin-right: 18px;
+  text-transform: none;
+}
+
+/* Birth month/year group */
+
+.inline-group {
+  display: flex;
+  gap: 40px;
+}
+
+.inline-group > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Checkbox */
+
+.checkbox-label {
+  display: block;
+  margin: 14px 0 20px;
+  font-size: 0.85rem;
+  color: #f8e8ff;
+}
+
+.checkbox-label input {
+  margin-right: 8px;
+}
+
+/* BUTTON ---------------------------- */
+
+#submitButton {
+  padding: 10px 28px;
+  background: linear-gradient(135deg, #F20F22, #D94389);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+#submitButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.8);
+  filter: brightness(1.08);
+}
+
+/* FOOTER ---------------------------- */
+
+#site-footer {
+  background: #591C27;
+  color: #fdf4f9;
+  padding: 18px 32px 26px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+

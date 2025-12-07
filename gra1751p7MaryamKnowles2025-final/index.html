@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Mayelewo | Maryam Knowles, 2025</title>
+  <meta name="description" content="Register for special offers and updates from Mayelewo.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header id="site-header">
+      <div class="logo-area">
+        <img src="img/logo-restaurant-name.png" alt="Mayelewo logo" class="logo">
+        <div class="branding">
+          <h1>Mayelewo</h1>
+          <p class="tagline">Riverside Neon Ramen & Bites</p>
+        </div>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Ramen & Bites Highlights</a></li>
+          <li><a href="#register">VIP Registration</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section id="hero">
+        <div class="hero-image">
+          <img src="img/hero-image.png" alt="Steaming neon ramen bowl by the river">
+        </div>
+        <div class="hero-copy">
+          <h2>Dive Into Neon Nights at the River</h2>
+          <p>Sign up for late‑night ramen tastings, riverside events, and neon‑lit chef’s table invites.</p>
+        </div>
+      </section>
+
+      <section id="about" class="content-section">
+        <h2>About Mayelewo</h2>
+        <p>Mayelewo is a riverside ramen bar glowing with neon color, steam, and sound. We serve bold broths, bright toppings, and playful small bites under city lights reflected in the water.</p>
+      </section>
+
+      <section id="menu" class="content-section">
+        <h2>Ramen & Bites Highlights</h2>
+        <div class="menu-grid">
+          <article class="menu-item"><img src="img/special-1.png"><h3>River Glow Tonkotsu</h3><p>A rich, luminous pork broth simmered for hours until silky and full-bodied.
+Served with tender chashu pork, springy noodles, scallions, earthy mushrooms, and a perfectly molten ajitama egg.</p></article>
+          <article class="menu-item"><img src="img/special-2.png"><h3>Midnight Miso Neon</h3><p>A deep, dark, and boldly savory miso ramen with caramelized undertones inspired by late-night city energy.Featuring roasted chashu pork, wilted spinach, scallions, toasted sesame, rich miso paste, and a soft-boiled egg resting in a glossy midnight broth.</p></article>
+          <article class="menu-item"><img src= "img/special-3.png"><h3>Firecracker Gyoza</h3><p>Crispy, golden pan-seared dumplings bursting with a spicy, flavorful filling. Served with a zesty sesame-soy dipping sauce and topped with scallions and chili threads for an extra kick.</p></article>
+        </div>
+      </section>
+
+      <section id="register" class="content-section">
+        <h2>VIP Registration Form</h2>
+        <p>Fields marked with * are required.</p>
+
+        <form id="vip-form" action="confirm.html" method="get" novalidate>
+          <label for="firstName">First Name*</label>
+          <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+          <br>
+
+          <label for="lastName">Last Name*</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+          <br>
+
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <br>
+
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required pattern="\(\d{3}\)\s?\d{3}-\d{4}">
+          <br>
+
+          <label for="password1">Password*</label>
+          <input type="password" id="password1" name="password1" placeholder="Password" required pattern="[A-Za-z0-9]{8,10}">
+          <br>
+
+          <label for="password2">Confirm Password*</label>
+          <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+          <br>
+
+          <fieldset class="form-group">
+            <legend>Preferred Experience*</legend>
+            <label><input type="radio" name="deliveryMethod" value="dine-in" required> Dine-In</label>
+            <label><input type="radio" name="deliveryMethod" value="takeout"> Takeout</label>
+            <label><input type="radio" name="deliveryMethod" value="delivery"> Delivery</label>
+          </fieldset>
+
+          <fieldset class="form-group inline-group">
+            <div>
+              <label for="birthMonth">Birth Month*</label>
+              <select id="birthMonth" name="birthMonth" required>
+                <option value="">Select month</option>
+                <option>January</option><option>February</option><option>March</option>
+                <option>April</option><option>May</option><option>June</option>
+                <option>July</option><option>August</option><option>September</option>
+                <option>October</option><option>November</option><option>December</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="birthYear">Birth Year*</label>
+              <select id="birthYear" name="birthYear" required>
+                <option value="">Select year</option>
+                <option>1950</option><option>1960</option><option>1970</option>
+                <option>1980</option><option>1990</option><option>2000</option><option>2005</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <label for="zip">ZIP Code*</label>
+          <input type="text" id="zip" name="zip" placeholder="12345" required pattern="\d{5}">
+          <br>
+
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms" name="terms" required>
+            I agree to the terms and conditions.*
+          </label>
+
+          <button type="submit" id="submitButton">Submit Registration</button>
+        </form>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <p>© 2025, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById('vip-form');
+      const pw1 = document.getElementById('password1');
+      const pw2 = document.getElementById('password2');
+
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) return;
+        if (pw1.value !== pw2.value) {
+          event.preventDefault();
+          alert('Passwords do not match.');
+          pw2.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
