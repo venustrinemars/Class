@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Dress-Up Studio</title>
+
+  <style>
+    body { margin: 0; padding: 0; font-family: "Playfair Display"; background:#2F4664; color:#fff; }
+    #wrapper { width: 1366px; margin: 0 auto; }
+
+    header { padding: 24px 40px 10px; }
+    header h1 { margin: 0; font-size: 44px; }
+    header p { margin: 10px 0 0; font-size: 15px; opacity: 0.9; }
+
+    /* LEFT (pieces) + RIGHT (board) */
+    main { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; padding: 20px 40px 30px; }
+
+    .box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 16px; }
+
+    /* Board background */
+    .board {
+      position: relative;
+      height: 720px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: url("images/game-background.jpg") center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* Drop zones */
+    .dropzone {
+      position: absolute;
+      width: 260px;
+      height: 180px;
+      border-radius: 14px;
+      outline: 2px dashed rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.06);
+      display: grid;
+      place-items: center;
+      transition: 120ms ease;
+      z-index: 5;
+    }
+    .dropzone.is-over { outline-color: rgba(255,255,255,0.95); transform: translateY(-2px); }
+    .dropzone.is-correct { outline: 2px solid rgba(160, 255, 200, 0.9); background: rgba(160,255,200,0.10); }
+
+    
+    #drop-crown { top: 70px;  left: 60px; }
+    #drop-dress { top: 250px; left: 60px; height: 260px; }
+    #drop-shoes { top: 560px; left: 60px; height: 140px; }
+
+    /* When an image is dropped into a zone, fit it */
+    .dropzone img { max-width: 95%; max-height: 95%; height: auto; width: auto; display: block; }
+
+    /* Pieces panel */
+    .pieces { display: grid; gap: 14px; }
+
+    .piece {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      padding: 10px;
+      display: grid;
+      place-items: center;
+      cursor: grab;
+      user-select: none;
+      min-height: 140px;
+    }
+
+    
+    .piece img {
+      max-width: 100%;
+      max-height: 220px;
+      height: auto;
+      width: auto;
+      display: block;
+      cursor: grab;
+    }
+
+    .status { margin-top: 12px; font-size: 14px; line-height: 1.4; opacity: 0.95; }
+    button {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header>
+      <h1>Royal Dress-Up Studio</h1>
+      <p>Drag each clothing item onto the princess to complete her outfit.</p>
+    </header>
+
+    <main>
+      <!-- LEFT: DRAG PIECES -->
+      <aside class="box">
+        <h2 style="margin:0 0 10px;">Pieces</h2>
+
+        <div class="pieces" id="pieces">
+          <div class="piece" data-slot="drag-crown">
+            <img id="drag-crown" src="images/drag-crown.png" alt="Crown" draggable="true">
+          </div>
+          <div class="piece" data-slot="drag-dress">
+            <img id="drag-dress" src="images/drag-dress.png" alt="Dress" draggable="true">
+          </div>
+          <div class="piece" data-slot="drag-shoes">
+            <img id="drag-shoes" src="images/drag-shoes.png" alt="Shoes" draggable="true">
+          </div>
+        </div>
+
+        
+        <div class="status">
+          Progress: <strong><span id="progress">0</span>/3</strong><br>
+          Message: <span id="message">Drag an item to begin.</span>
+        </div>
+
+        <button type="button" id="resetBtn">Reset game</button>
+      </aside>
+
+      <!-- RIGHT: DROP ZONES -->
+      <section class="box">
+        <div class="board">
+          <div class="dropzone" id="drop-crown" data-accept="drag-crown"></div>
+          <div class="dropzone" id="drop-dress" data-accept="drag-dress"></div>
+          <div class="dropzone" id="drop-shoes" data-accept="drag-shoes"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer style="padding: 0 40px 24px; font-size:12px; opacity:0.8;">
+      <p>© 2026, Maryam Knowles. This is a fictitious web page created solely for the purpose of education and training. All products and people associated with this web page are also fictitious. Any resemblance to real brands, products, or people is purely coincidental. Information provided about the product is also fictitious and should not be construed to be representative of actual products on the market in a similar product category.</p>
+    </footer>
+  </div>
+
+  <script>
+    const progressEl = document.getElementById("progress");
+    const messageEl = document.getElementById("message");
+    const resetBtn = document.getElementById("resetBtn");
+
+    const dropzones = Array.from(document.querySelectorAll(".dropzone"));
+
+    const requiredIds = ["drag-crown", "drag-dress", "drag-shoes"];
+    const placed = new Set();
+
+    function setMessage(text) {
+      if (messageEl) messageEl.textContent = text;
+    }
+
+    function updateProgress() {
+      if (progressEl) progressEl.textContent = String(placed.size);
+      if (placed.size === requiredIds.length) {
+        setMessage("Outfit complete! ✨");
+      }
+    }
+
+    // Drag start handlers
+    requiredIds.forEach(id => {
+      const img = document.getElementById(id);
+      if (!img) return;
+
+      img.addEventListener("dragstart", (ev) => {
+        ev.dataTransfer.setData("text/plain", ev.target.id);
+        setMessage("Drop it on the matching spot.");
+      });
+    });
+
+    // Dropzone handlers
+    dropzones.forEach(zone => {
+      zone.addEventListener("dragover", (ev) => {
+        ev.preventDefault();
+        zone.classList.add("is-over");
+      });
+
+      zone.addEventListener("dragleave", () => {
+        zone.classList.remove("is-over");
+      });
+
+      zone.addEventListener("drop", (ev) => {
+        ev.preventDefault();
+        zone.classList.remove("is-over");
+
+        const draggedId = ev.dataTransfer.getData("text/plain");
+        const acceptId = zone.getAttribute("data-accept");
+
+        if (zone.querySelector("img")) {
+          setMessage("That spot is already filled.");
+          return;
+        }
+
+        if (draggedId !== acceptId) {
+          setMessage("Not quite — try a different spot.");
+          return;
+        }
+
+        const draggedEl = document.getElementById(draggedId);
+        if (!draggedEl) return;
+
+        zone.appendChild(draggedEl);
+        draggedEl.setAttribute("draggable", "false");
+        draggedEl.style.cursor = "default";
+        zone.classList.add("is-correct");
+
+        placed.add(draggedId);
+        setMessage("Perfect!");
+        updateProgress();
+      });
+    });
+
+    // Reset button
+    resetBtn.addEventListener("click", () => {
+      requiredIds.forEach(id => {
+        const img = document.getElementById(id);
+        if (!img) return;
+
+        img.setAttribute("draggable", "true");
+        img.style.cursor = "grab";
+
+        const homeSlot = document.querySelector(`.piece[data-slot="${id}"]`);
+        if (homeSlot) homeSlot.appendChild(img);
+      });
+
+      dropzones.forEach(z => z.classList.remove("is-correct"));
+
+      placed.clear();
+      updateProgress();
+      setMessage("Game reset. Drag an item to begin.");
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>
