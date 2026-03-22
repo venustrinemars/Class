@@ -1,0 +1,170 @@
+/* =========
+   Base
+========= */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Lato, Arial, sans-serif;
+  color: #fff;
+}
+
+/* ===== LINKS (luxe style, but NOT for buttons) ===== */
+section .panel a:not(.btn) {
+  color: #f7c7df;          /* soft luxe pink */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+section .panel a:not(.btn):hover {
+  color: #ffe1ef;
+  text-decoration: underline;
+}
+
+/* =========
+   Parallax wrapper (REQUIRED)
+========= */
+.wrapper {
+  height: 100vh;           
+  perspective: 1px;        
+  overflow-x: hidden;      
+  overflow-y: auto;        
+}
+
+/* Header/Footer */
+header.site-header {
+  height: 160px;
+  background: url("../images/header.png") center/cover no-repeat;
+}
+
+footer.site-footer {
+  background: #111;
+  color: white;
+  padding: 20px;
+}
+
+/* =========
+   Sections
+========= */
+section {
+  height: 768px;           
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  padding: 80px;
+  display: flex;
+  align-items: center;
+
+  transform-style: preserve-3d;
+}
+
+/* ===== LUXE GLASS PANEL ===== */
+section .panel {
+  max-width: 620px;
+  padding: 34px 36px;
+  border-radius: 22px;
+
+  background: rgba(10, 10, 16, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* luxe accent line */
+section .panel::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(247, 199, 223, 0.85);
+  margin-bottom: 16px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+section h2 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+}
+
+section p, section li {
+  line-height: 1.75;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+section ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+/* Background images */
+.hero  { background-image: url("../images/bg1.jpg"); }
+.tech  { background-image: url("../images/bg2.jpg"); }
+.story { background-image: url("../images/bg3.jpg"); }
+
+/* ===== REQUIRED PARALLAX TRANSFORMS ===== */
+.hero  { transform: translateZ(-10px) scale(11); }
+.tech  { transform: translateZ(-5px)  scale(6);  }
+.story { transform: translateZ(-1px)  scale(2);  }
+
+/* Trial-and-error spacing */
+.hero  { margin-top: -500px; }
+.tech  { margin-top: 4100px; }
+.story { margin-top: 600px; }
+
+/* ===== BUTTON ROW + BUTTONS ===== */
+.btn-row {
+  margin-top: 16px;
+  display: flex;      /* keeps them side-by-side */
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* Keep buttons white (not pink) */
+section .panel a.btn {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== FOOTER FINEPRINT ===== */
+footer.site-footer .fineprint {
+  max-width: 980px;
+  margin: 0 auto;
+  background: rgba(10, 10, 16, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 18px 18px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+footer.site-footer .fineprint p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
